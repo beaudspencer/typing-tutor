@@ -1,0 +1,24 @@
+body {
+  font-family: 'Montserrat';
+  background-color: #ffffff;
+}
+
+div {
+  margin: 0 auto;
+  width: fit-content;
+  padding: 1rem;
+  background-color: #8591b2;
+  border-style: ridge;
+}
+
+h1,
+h2 {
+  color: #bab8b3;
+  width: fit-content;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.phrase {
+  transform: translateY(8em);
+}
