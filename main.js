@@ -24,7 +24,6 @@ function renderChar(state, letterIndex) {
     }
     else {
       $currentChar.classList.add('current-char')
-      console.log('hey')
     }
   }
   return $currentChar
@@ -44,6 +43,9 @@ $phraseContainer.appendChild(renderPhrase(applicationState))
 $window.addEventListener('keydown', function (event) {
   if (event.key !== applicationState.characters[applicationState.currentIndex].char){
     applicationState.characters[applicationState.currentIndex].failure += 1
+  }
+  else {
+    applicationState.currentIndex++
   }
   $phraseContainer.innerHTML = ''
   $phraseContainer.appendChild(renderPhrase(applicationState))
