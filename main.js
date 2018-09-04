@@ -15,10 +15,12 @@ var applicationState = {
   currentIndex: 0
 }
 
-function renderChar(obj) {
+function renderChar(obj, cVal) {
   var $currentChar = document.createElement('span')
   $currentChar.classList.add('char')
   $currentChar.textContent = obj.letter
+  if( applicationState.currentIndex === cVal )
+    $currentChar.classList.add('current-char')
   return $currentChar
 }
 
@@ -26,11 +28,7 @@ function renderPhrase(arr) {
   var $wholePhrase = document.createElement('span')
   $wholePhrase.classList.add('whole-string')
   for(var c = 0; c < arr.length; c++){
-    $wholePhrase.appendChild(renderChar(arr[c]))
-    if (c === applicationState.currentIndex) {
-      let $temp = $wholePhrase.getElementsByTagName('span')[c]
-      $temp.classList.add('current-char')
-    }
+    $wholePhrase.appendChild(renderChar(arr[c], c))
   }
   return $wholePhrase
 }
