@@ -17,9 +17,11 @@ function renderChar(state, letterIndex) {
   var $currentChar = document.createElement('span')
   $currentChar.classList.add('char')
   $currentChar.textContent = state.characters[letterIndex].char
+  if (state.characters[letterIndex].failure !== 0) {
+    $currentChar.classList.add('failure')
+  }
   if( state.currentIndex === letterIndex ){
-    if (state.characters[letterIndex].failure !== 0) $currentChar.classList.add('failure')
-    else $currentChar.classList.add('current-char')
+    $currentChar.classList.add('current-char')
   }
   return $currentChar
 }
