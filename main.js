@@ -41,7 +41,7 @@ function gameOver(currentState) {
   for (var c = 0; c < possibleCorrect; c++){
     failures += currentState.characters[c].failure
   }
-  return ((possibleCorrect - failures) / possibleCorrect) * 100
+  return Math.floor(((possibleCorrect - failures) / possibleCorrect) * 100)
 }
 
 $phraseContainer.appendChild(renderPhrase(applicationState))
