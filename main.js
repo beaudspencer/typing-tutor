@@ -1,5 +1,5 @@
 var applicationState = {
-  phrase: 'grumpy wizards make toxic brew for the evil queen',
+  phrase: 'grumpy wizards make toxic brew for the evil queen and jack',
   characters: [],
   currentIndex: 0
 }
@@ -44,6 +44,16 @@ function gameOver(currentState) {
   return Math.floor(((possibleCorrect - failures) / possibleCorrect) * 100)
 }
 
+function renderGameOver(appState) {
+  var $endDisplay = document.createElement('h2')
+  $endDisplay.textContent = 'You had ' + gameOver(appState) + '% accuracy.'
+  if (gameOver(appState) > 85) $endDisplay.textContent += ' Great Job!'
+  var $endContainer = document.createElement('div')
+  $endContainer.classList.add('end-container')
+  $endContainer.appendChild($endDisplay)
+  return $endContainer
+}
+
 $phraseContainer.appendChild(renderPhrase(applicationState))
 
 window.addEventListener('keydown', function (event) {
@@ -54,11 +64,9 @@ window.addEventListener('keydown', function (event) {
   else {
     applicationState.currentIndex++
   }
-  if(applicationState.currentIndex < applicationState.characters.length) {
   $phraseContainer.innerHTML = ''
   $phraseContainer.appendChild(renderPhrase(applicationState))
-  }
-  else {
-    console.log(gameOver(applicationState))
+  if(applicationState.currentIndex === applicationState.characters.length){
+    document.body.appendChild(renderGameOver(applicationState))
   }
 })
