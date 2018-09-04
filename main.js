@@ -27,6 +27,10 @@ function renderPhrase(arr) {
   $wholePhrase.classList.add('whole-string')
   for(var c = 0; c < arr.length; c++){
     $wholePhrase.appendChild(renderChar(arr[c]))
+    if (c === applicationState.currentIndex) {
+      let $temp = $wholePhrase.getElementsByTagName('span')[c]
+      $temp.classList.add('current-char')
+    }
   }
   return $wholePhrase
 }

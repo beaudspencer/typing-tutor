@@ -20,12 +20,13 @@ h2 {
 }
 
 .phrase {
-  font-size: 1.5rem;
+  font-size: 2rem;
   transform: translateY(4em);
 }
 
 .current-char {
+  color: aquamarine;
   text-decoration: underline;
-  text-decoration-color: aquamarine;
-  font-weight: bold;
+  text-decoration-color: #fif5ff;
+  font-weight: bolder;
 }
