@@ -46,8 +46,10 @@ function gameOver(currentState) {
 
 function renderGameOver(appState) {
   var $endDisplay = document.createElement('h2')
-  $endDisplay.textContent = 'You had ' + gameOver(appState) + '% accuracy!'
+  $endDisplay.textContent = 'You had ' + gameOver(appState) + '% accuracy.'
+  if (gameOver(appState) > 85) $endDisplay.textContent += ' Great Job!'
   var $endContainer = document.createElement('div')
+  $endContainer.classList.add('end-container')
   $endContainer.appendChild($endDisplay)
   return $endContainer
 }
