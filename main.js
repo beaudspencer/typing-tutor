@@ -5,7 +5,8 @@ var applicationState = {
 }
 for(var i = 0; i < applicationState.phrase.length; i++) {
   var letterObject = {
-    char: ''
+    char: '',
+    failure: 0
   }
   letterObject.char = applicationState.phrase[i]
   applicationState.characters.push(letterObject)
