@@ -18,8 +18,15 @@ function renderChar(state, letterIndex) {
   var $currentChar = document.createElement('span')
   $currentChar.classList.add('char')
   $currentChar.textContent = state.characters[letterIndex].char
-  if( state.currentIndex === letterIndex )
-    $currentChar.classList.add('current-char')
+  if( state.currentIndex === letterIndex ){
+    if (state.characters[letterIndex].failure !== 0){
+      $currentChar.classList.add('failure')
+    }
+    else {
+      $currentChar.classList.add('current-char')
+      console.log('hey')
+    }
+  }
   return $currentChar
 }
 
@@ -35,8 +42,9 @@ function renderPhrase(currentState) {
 $phraseContainer.appendChild(renderPhrase(applicationState))
 
 $window.addEventListener('keydown', function (event) {
-  if (event.charCode !== applicationState.characters[applicationState.currentIndex]){
-    applicationState.characters[applicationState.currentIndex].failure++
+  if (event.key !== applicationState.characters[applicationState.currentIndex].char){
+    applicationState.characters[applicationState.currentIndex].failure += 1
   }
-  renderPhrase(applicationState)
+  $phraseContainer.innerHTML = ''
+  $phraseContainer.appendChild(renderPhrase(applicationState))
 })
