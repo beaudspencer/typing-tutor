@@ -35,5 +35,8 @@ function renderPhrase(currentState) {
 $phraseContainer.appendChild(renderPhrase(applicationState))
 
 $window.addEventListener('keydown', function (event) {
+  if (event.charCode !== applicationState.characters[applicationState.currentIndex]){
+    applicationState.characters[applicationState.currentIndex].failure++
+  }
   renderPhrase(applicationState)
 })
