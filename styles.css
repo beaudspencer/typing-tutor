@@ -23,3 +23,9 @@ h2 {
   font-size: 1.5rem;
   transform: translateY(4em);
 }
+
+.current-char {
+  text-decoration: underline;
+  text-decoration-color: aquamarine;
+  font-weight: bold;
+}
