@@ -1,32 +1,32 @@
 var phrase = 'grumpy wizards make toxic brew for the evil queen'
-var array = []
+var applicationState = {
+  characters: [],
+  currentIndex: 0
+}
 var $phraseContainer = document.getElementsByTagName('div')[1]
 
 for(var c = 0; c < phrase.length; c++) {
-  var obj = {
+  var character = {
     letter: ''
   }
-  obj.letter = phrase[c]
-  array.push(obj)
+  character.letter = phrase[c]
+  applicationState.characters.push(character)
 }
-array.push({
-  currentIndex: 0
-})
 
-function renderChar(obj, cVal) {
+function renderChar(currentLeter, cVal) {
   var $currentChar = document.createElement('span')
   $currentChar.classList.add('char')
-  $currentChar.textContent = obj.letter
+  $currentChar.textContent = currentLetter.letter
   if( array[array.length - 1].currentIndex === cVal )
     $currentChar.classList.add('current-char')
   return $currentChar
 }
 
-function renderPhrase(arr) {
+function renderPhrase(phraseArray) {
   var $wholePhrase = document.createElement('span')
   $wholePhrase.classList.add('whole-string')
-  for(var c = 0; c < arr.length -1; c++){
-    $wholePhrase.appendChild(renderChar(arr[c], c))
+  for(var c = 0; c < phraseArray.length; c++){
+    $wholePhrase.appendChild(renderChar(phraseArray[c], c))
   }
   return $wholePhrase
 }
