@@ -12,6 +12,10 @@ div {
   border-style: ridge;
 }
 
+h1 {
+  font-size: 3rem;
+}
+
 h1,
 h2 {
   width: fit-content;
