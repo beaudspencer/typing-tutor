@@ -9,17 +9,15 @@ for(var c = 0; c < phrase.length; c++) {
   obj.letter = phrase[c]
   array.push(obj)
 }
-
-var applicationState = {
-  charachters: 'grumpy wizards make toxic brew for the evil queen',
+array.push({
   currentIndex: 0
-}
+})
 
 function renderChar(obj, cVal) {
   var $currentChar = document.createElement('span')
   $currentChar.classList.add('char')
   $currentChar.textContent = obj.letter
-  if( applicationState.currentIndex === cVal )
+  if( array[array.length - 1].currentIndex === cVal )
     $currentChar.classList.add('current-char')
   return $currentChar
 }
@@ -27,7 +25,7 @@ function renderChar(obj, cVal) {
 function renderPhrase(arr) {
   var $wholePhrase = document.createElement('span')
   $wholePhrase.classList.add('whole-string')
-  for(var c = 0; c < arr.length; c++){
+  for(var c = 0; c < arr.length -1; c++){
     $wholePhrase.appendChild(renderChar(arr[c], c))
   }
   return $wholePhrase
