@@ -10,7 +10,6 @@ for(var i = 0; i < applicationState.phrase.length; i++) {
   letterObject.char = applicationState.phrase[i]
   applicationState.characters.push(letterObject)
 }
-console.log(applicationState.characters)
 var $phraseContainer = document.getElementsByTagName('div')[1]
 
 function renderChar(state, letterIndex) {
