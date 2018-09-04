@@ -1,5 +1,5 @@
 var applicationState = {
-  phrase: 'lol',
+  phrase: 'grumpy wizards make toxic brew for the evil queen and jack',
   characters: [],
   currentIndex: 0
 }
