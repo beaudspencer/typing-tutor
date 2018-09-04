@@ -12,19 +12,14 @@ for(var i = 0; i < applicationState.phrase.length; i++) {
   applicationState.characters.push(letterObject)
 }
 var $phraseContainer = document.getElementsByTagName('div')[1]
-var $window = document.getElementsByTagName('html')[0]
 
 function renderChar(state, letterIndex) {
   var $currentChar = document.createElement('span')
   $currentChar.classList.add('char')
   $currentChar.textContent = state.characters[letterIndex].char
   if( state.currentIndex === letterIndex ){
-    if (state.characters[letterIndex].failure !== 0){
-      $currentChar.classList.add('failure')
-    }
-    else {
-      $currentChar.classList.add('current-char')
-    }
+    if (state.characters[letterIndex].failure !== 0) $currentChar.classList.add('failure')
+    else $currentChar.classList.add('current-char')
   }
   return $currentChar
 }
@@ -40,9 +35,10 @@ function renderPhrase(currentState) {
 
 $phraseContainer.appendChild(renderPhrase(applicationState))
 
-$window.addEventListener('keydown', function (event) {
-  if (event.key !== applicationState.characters[applicationState.currentIndex].char){
-    applicationState.characters[applicationState.currentIndex].failure += 1
+window.addEventListener('keydown', function (event) {
+  var currentCharacter = applicationState.characters[applicationState.currentIndex]
+  if (event.key !== currentCharacter.char){
+    currentCharacter.failure++
   }
   else {
     applicationState.currentIndex++
