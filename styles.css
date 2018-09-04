@@ -34,3 +34,8 @@ h2 {
   text-decoration-color: #fif5ff;
   font-weight: bolder;
 }
+
+.failure {
+  color : rgb(255, 132, 132);
+  text-decoration: underline double rgb(245, 90, 90);
+}
