@@ -13,11 +13,11 @@ for(var c = 0; c < phrase.length; c++) {
   applicationState.characters.push(character)
 }
 
-function renderChar(currentLeter, cVal) {
+function renderChar(currentLetter, cVal) {
   var $currentChar = document.createElement('span')
   $currentChar.classList.add('char')
   $currentChar.textContent = currentLetter.letter
-  if( array[array.length - 1].currentIndex === cVal )
+  if( applicationState.currentIndex === cVal )
     $currentChar.classList.add('current-char')
   return $currentChar
 }
@@ -31,4 +31,4 @@ function renderPhrase(phraseArray) {
   return $wholePhrase
 }
 
-$phraseContainer.appendChild(renderPhrase(array))
+$phraseContainer.appendChild(renderPhrase(applicationState.characters))
