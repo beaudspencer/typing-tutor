@@ -35,16 +35,30 @@ function renderPhrase(currentState) {
   return $wholePhrase
 }
 
+function gameOver(currentState) {
+  var possibleCorrect = currentState.characters.length
+  var failures = 0
+  for (var c = 0; c < possibleCorrect; c++){
+    failures += currentState.characters[c].failure
+  }
+  return ((possibleCorrect - failures) / possibleCorrect) * 100
+}
+
 $phraseContainer.appendChild(renderPhrase(applicationState))
 
 window.addEventListener('keydown', function (event) {
   var currentCharacter = applicationState.characters[applicationState.currentIndex]
-  if (event.key !== currentCharacter.char){
+  if (event.key !== currentCharacter.char && applicationState.currentIndex < applicationState.characters.length){
     currentCharacter.failure++
   }
   else {
     applicationState.currentIndex++
   }
+  if(applicationState.currentIndex < applicationState.characters.length) {
   $phraseContainer.innerHTML = ''
   $phraseContainer.appendChild(renderPhrase(applicationState))
+  }
+  else {
+    console.log(gameOver(applicationState))
+  }
 })
