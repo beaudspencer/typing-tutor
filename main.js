@@ -1,12 +1,18 @@
 var phrase = 'grumpy wizards make toxic brew for the evil queen'
 var array = []
 var $phraseContainer = document.getElementsByTagName('div')[1]
+
 for(var c = 0; c < phrase.length; c++) {
   var obj = {
     letter: ''
   }
   obj.letter = phrase[c]
   array.push(obj)
+}
+
+var applicationState = {
+  charachters: 'grumpy wizards make toxic brew for the evil queen',
+  currentIndex: 0
 }
 
 function renderChar(obj) {
