@@ -66,6 +66,7 @@ function renderGameOver(appState) {
 
 function next(appState) {
   appState.currentPhrase++
+  appState.currentIndex = 0
   appState.characters = []
   setCharacters(appState)
 }
