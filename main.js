@@ -58,6 +58,9 @@ function renderGameOver(appState) {
   var $endContainer = document.createElement('div')
   $endContainer.classList.add('end-container')
   $endContainer.appendChild($endDisplay)
+  $nextButton = document.createElement('button')
+  $nextButton.textContent = 'Next!'
+  $endContainer.appendChild($nextButton)
   return $endContainer
 }
 
