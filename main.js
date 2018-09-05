@@ -4,15 +4,21 @@ var applicationState = {
   currentIndex: 0,
   currentPhrase: 0
 }
-for(var i = 0; i < applicationState.phrase[applicationState.currentPhrase].length; i++) {
-  var letterObject = {
-    char: '',
-    failure: 0
-  }
-  letterObject.char = applicationState.phrase[applicationState.currentPhrase][i]
-  applicationState.characters.push(letterObject)
-}
+
 var $phraseContainer = document.getElementsByTagName('div')[1]
+
+function setCharacters(appState) {
+  for(var i = 0; i < appState.phrase[appState.currentPhrase].length; i++) {
+    var letterObject = {
+      char: '',
+      failure: 0
+    }
+    letterObject.char = appState.phrase[appState.currentPhrase][i]
+    appState.characters.push(letterObject)
+  }
+}
+
+setCharacters(applicationState)
 
 function renderChar(state, letterIndex) {
   var $currentChar = document.createElement('span')
@@ -58,6 +64,7 @@ function renderGameOver(appState) {
 function next(appState) {
   appState.currentPhrase++
   appState.characters = []
+  setCharacters(appState)
 }
 
 $phraseContainer.appendChild(renderPhrase(applicationState))
