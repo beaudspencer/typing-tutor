@@ -55,6 +55,11 @@ function renderGameOver(appState) {
   return $endContainer
 }
 
+function next(appState) {
+  appState.currentPhrase++
+  appState.characters = []
+}
+
 $phraseContainer.appendChild(renderPhrase(applicationState))
 
 window.addEventListener('keydown', function (event) {
