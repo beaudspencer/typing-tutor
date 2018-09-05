@@ -1,14 +1,15 @@
 var applicationState = {
-  phrase: 'grumpy wizards make toxic brew for the evil queen and jack',
+  phrase: ['on a scale from one to ten what is your favourite colour of the alphabet.'],
   characters: [],
-  currentIndex: 0
+  currentIndex: 0,
+  currentPhrase: 0
 }
-for(var i = 0; i < applicationState.phrase.length; i++) {
+for(var i = 0; i < applicationState.phrase[applicationState.currentPhrase].length; i++) {
   var letterObject = {
     char: '',
     failure: 0
   }
-  letterObject.char = applicationState.phrase[i]
+  letterObject.char = applicationState.phrase[applicationState.currentPhrase][i]
   applicationState.characters.push(letterObject)
 }
 var $phraseContainer = document.getElementsByTagName('div')[1]
